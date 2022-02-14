@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ethereum bridge - Anoma Specification</title>
+        <title>Trusted setup - Anoma Specification</title>
 
 
         <!-- Custom HTML head -->
@@ -13,24 +13,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="../favicon.svg">
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../assets/custom.css">
+        <link rel="stylesheet" href="../../assets/custom.css">
 
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -38,7 +38,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "../";
+            var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Index</a></li><li class="chapter-item expanded "><a href="../m1.html"><strong aria-hidden="true">2.</strong> M1</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../m1/execution-system.html"><strong aria-hidden="true">2.1.</strong> Execution system</a></li><li class="chapter-item "><a href="../m1/masp.html"><strong aria-hidden="true">2.2.</strong> Multi-asset shielded pool</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../m1/masp/trusted-setup.html"><strong aria-hidden="true">2.2.1.</strong> Trusted setup</a></li></ol></li><li class="chapter-item "><a href="../m1/governance.html"><strong aria-hidden="true">2.3.</strong> Governance</a></li><li class="chapter-item "><a href="../m1/proof-of-stake.html"><strong aria-hidden="true">2.4.</strong> Proof of stake</a></li><li class="chapter-item "><a href="../m1/fee-system.html"><strong aria-hidden="true">2.5.</strong> Fee system</a></li><li class="chapter-item expanded "><a href="../m1/ethereum-bridge.html" class="active"><strong aria-hidden="true">2.6.</strong> Ethereum bridge</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Index</a></li><li class="chapter-item expanded "><a href="../../m1.html"><strong aria-hidden="true">2.</strong> M1</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../m1/execution-system.html"><strong aria-hidden="true">2.1.</strong> Execution system</a></li><li class="chapter-item expanded "><a href="../../m1/masp.html"><strong aria-hidden="true">2.2.</strong> Multi-asset shielded pool</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../m1/masp/trusted-setup.html" class="active"><strong aria-hidden="true">2.2.1.</strong> Trusted setup</a></li></ol></li><li class="chapter-item "><a href="../../m1/governance.html"><strong aria-hidden="true">2.3.</strong> Governance</a></li><li class="chapter-item "><a href="../../m1/proof-of-stake.html"><strong aria-hidden="true">2.4.</strong> Proof of stake</a></li><li class="chapter-item "><a href="../../m1/fee-system.html"><strong aria-hidden="true">2.5.</strong> Fee system</a></li><li class="chapter-item "><a href="../../m1/ethereum-bridge.html"><strong aria-hidden="true">2.6.</strong> Ethereum bridge</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -116,7 +116,7 @@
                     <h1 class="menu-title">Anoma Specification</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -145,43 +145,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ethereum-bridge"><a class="header" href="#ethereum-bridge">Ethereum bridge</a></h1>
-<p>The M1 Ethereum bridge system consists of a few parts:</p>
-<ul>
-<li>&quot;IBC-adapter&quot; code on the M1 side
-<ul>
-<li>Allow M1 validators to vote on the latest Ethereum state roots &amp; log roots (check this) for blocks</li>
-<li>Allow M1 validity predicates Ethereum state read access through these commitee-voted roots &amp; Merkle proofs</li>
-<li>Slash validators using commit-reveal, if they commit to a different root. Failing to reveal is considered a liveness fault.</li>
-</ul>
-</li>
-<li>A set of Ethereum contracts which perform the following functions:
-<ul>
-<li>Verify Tendermint header updates from M1, and sub-state proofs</li>
-<li>Allow Ethereum contracts to send messages to M1 by outputting logs in a particular format</li>
-<li>Allow Ethereum contracts to receive messages from M1 by verifying message commitments in the M1 state Merkle tree</li>
-<li>Handle ICS20-style token transfer messages appropriately with escrow &amp; unescrow on the Ethereum side</li>
-<li>Allow for message batching</li>
-</ul>
-</li>
-</ul>
-<p>This basic bridge architecture should provide for almost-M1 consensus security for the bridge and free Ethereum state reads on M1, plus bidirectional message passing with reasonably low gas costs on the Ethereum side.</p>
-<p>Resources which may be helpful:</p>
-<ul>
-<li><a href="https://github.com/Gravity-Bridge/Gravity-Bridge/tree/main/solidity">Gravity Bridge Solidity contracts</a></li>
-<li><a href="https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer">ICS20</a></li>
-<li><a href="https://github.com/aurora-is-near/rainbow-bridge/tree/master/contracts">Rainbow Bridge contracts</a></li>
-</ul>
-<p>One caveat is that we should check the cost of Tendermint header verification on Ethereum; it can be amortised across packets but this still may be quite high. If it is too high we could try to use a threshold key with Ferveo instead.</p>
+                        <h1 id="trusted-setup"><a class="header" href="#trusted-setup">Trusted setup</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../m1/fee-system.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../m1/masp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="../../m1/governance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -189,10 +165,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../m1/fee-system.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../m1/masp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="../../m1/governance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -205,17 +184,17 @@
         </script>
 
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript" src="../assets/mermaid.min.js"></script>
-        <script type="text/javascript" src="../assets/mermaid-init.js"></script>
+        <script type="text/javascript" src="../../assets/mermaid.min.js"></script>
+        <script type="text/javascript" src="../../assets/mermaid-init.js"></script>
 
 
     </body>
