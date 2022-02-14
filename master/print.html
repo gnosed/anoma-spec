@@ -147,7 +147,166 @@
                 <div id="content" class="content">
                     <main>
                         <p>ye have found the Anoma specs</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="m1"><a class="header" href="#m1">M1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="m1-overview"><a class="header" href="#m1-overview">M1 Overview</a></h1>
+<p>M1 is a sovereign chain that enables full multi-asset privacy for all connected
+assets. In order to make M1 a reality, we not only need a name but we also need
+a lot of features besides the ZKP circuits. Over time the set of supported
+features my be extended to include things like fully programmable VPs and more
+advanced circuits.</p>
+<h2 id="raison-dêtre"><a class="header" href="#raison-dêtre">Raison d'être</a></h2>
+<p>True multi-asset privacy doesn't exist at the moment anywhere. Up until now you
+had the choice to build a sovereign chain that reissues assets (ie ZCash) or to
+build a privacy preserving solution on existing chains (ie Tornado Cash on
+Ethereum). Both have large trade-offs; in the former case users don't have
+assets that they actually want to use and in the latter case users leak a ton of
+metadata, it's expensive and clunky to use.</p>
+<p>In 2022 the timing is right to launch M1, because interoperability in the form 
+of IBC is starting to work in practice and that we are ready tech-wise in order
+to launch something like M1.</p>
+<p>Moreover M1 also presents a very good stepping stone to launch before mainnet
+Anoma as the first chain in the Anoma ecosystem. It is expected that M1 is long
+lived and supports actual assets and real value after launch; or in other words,
+it's a full-fledged public blockchain.</p>
+<h2 id="proposed-features"><a class="header" href="#proposed-features">Proposed Features</a></h2>
+<h3 id="cryptography"><a class="header" href="#cryptography">Cryptography</a></h3>
+<ul>
+<li>MASP circuit
+<ul>
+<li>Support arbitrary assets</li>
+</ul>
+</li>
+<li>Trusted setup for the circuit
+<ul>
+<li>Secure and publicly accepted setup (with more than 100 participants)</li>
+</ul>
+</li>
+</ul>
+<h3 id="base-ledger"><a class="header" href="#base-ledger">Base Ledger</a></h3>
+<ul>
+<li>Proof of Stake
+<ul>
+<li>Validators can stake assets</li>
+<li>Delegators can delegate assets to validators</li>
+<li>Creation of a community pool that is spendable by governance</li>
+</ul>
+</li>
+<li>Governance
+<ul>
+<li>Validators can vote and delegators can override their validators vote</li>
+<li>Election of a technical committee that can propose and review community
+funding</li>
+</ul>
+</li>
+<li>Gas/Fee system
+<ul>
+<li>Transactions can't spam the network</li>
+</ul>
+</li>
+<li>Execution system
+<ul>
+<li>VPs with initial whitelisting</li>
+</ul>
+</li>
+</ul>
+<h3 id="bridges"><a class="header" href="#bridges">Bridges</a></h3>
+<ul>
+<li>Bridge to IBC chains (Osmosis, Cosmos, E-Money, Terra)</li>
+<li>Bridge to Ethereum</li>
+<li>All bridges need to be thoroughly tested and running on internal testnets</li>
+</ul>
+<h3 id="front-ends"><a class="header" href="#front-ends">Front-ends</a></h3>
+<ul>
+<li>
+<p>Multi-chain/Multi-asset wallet that supports moving assets across bridges</p>
+<ul>
+<li>Enables ETH to be moved to M1 and back</li>
+<li>Supports staking and governance on M1</li>
+<li>Enables multi-asset transfers involving the MASP</li>
+<li>Integrates with existing key solutions (Ledger, Metamask, Keplr)</li>
+<li>Supports whatever incentives schemes we want to have</li>
+</ul>
+</li>
+<li>
+<p>Block explorer</p>
+<ul>
+<li>Display PoS state</li>
+<li>Display governance state</li>
+<li>Display transparent transfers</li>
+<li>Display transfers in and out of the MASP</li>
+<li>Display total values for the MASP</li>
+<li>Allows tx hashes of shielded transfers to be looked up for confirmation</li>
+</ul>
+</li>
+</ul>
+<h3 id="testnets"><a class="header" href="#testnets">Testnets</a></h3>
+<ul>
+<li>Private testnets
+<ul>
+<li>Just us</li>
+</ul>
+</li>
+<li>Internal testnets
+<ul>
+<li>Small select group of people</li>
+</ul>
+</li>
+<li>Public testnets
+<ul>
+<li>Anyone that wants to join</li>
+</ul>
+</li>
+<li>Incentivized testnets</li>
+</ul>
+<h3 id="integrations"><a class="header" href="#integrations">Integrations</a></h3>
+<ul>
+<li>Indexer for M1 to integrate with block explorers</li>
+<li>Validator tooling</li>
+<li>Stakeholder support
+<ul>
+<li>Rosetta integration</li>
+<li>Datahub integration</li>
+</ul>
+</li>
+</ul>
+<h2 id="proposed-timeline"><a class="header" href="#proposed-timeline">Proposed Timeline</a></h2>
+<p>I'm proposing an aggressive timeline, because we have to acknowledge that if we 
+ship M1 in 2023, then it's too late. The goal is to publically launch M1 in
+summer 2022, around August.</p>
+<p>The major milestones that we can focus around are the testnets and other things,
+such as UIs and Trusted Setups can be timelined based on the testnets.</p>
+<ul>
+<li>Private testnets
+<ul>
+<li>End of February</li>
+<li>Things can still be janky but we should have a working chain on which we can
+test the majority of functionality</li>
+</ul>
+</li>
+<li>Internal testnets
+<ul>
+<li>End of March</li>
+<li>Friends and family can start running our testnets</li>
+<li>We are starting to have the first UIs that are working and Ledger apps are
+in testing</li>
+</ul>
+</li>
+<li>Public testnets
+<ul>
+<li>End of April</li>
+<li>The software is stable enough and we have enough documentation that 
+strangers on the internet can run it</li>
+<li>Trusted setup should be done.</li>
+</ul>
+</li>
+<li>Incentivized testnets
+<ul>
+<li>End of May</li>
+<li>The incentivized testnets can run for the next 2 months while the last 
+remaining bits are polished. Participants receive tokens and we are spending
+those 2 months gearing up for launch.</li>
+</ul>
+</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="masp"><a class="header" href="#masp">MASP</a></h1>
 <p>This specification should cover:</p>
 <ul>
@@ -168,6 +327,12 @@
 <li>Slashing mechanism &amp; infractions</li>
 <li>Rewards &amp; distribution</li>
 </ul>
+<h2 id="slashing"><a class="header" href="#slashing">Slashing</a></h2>
+<ul>
+<li>Slashing should happen for all of the Tendermint-recognised faults.</li>
+</ul>
+<h2 id="rewards"><a class="header" href="#rewards">Rewards</a></h2>
+<p>Until we have programmable validity predicates, rewards can use the mechanism outlined in the <a href="https://drops.dagstuhl.de/opus/volltexte/2020/11974/pdf/OASIcs-Tokenomics-2019-10.pdf">F1 paper</a>, but it should use the exponential model, so that withdrawing rewards more frequently provides no additional benefit (this is a design constraint we should follow in general, we don't want to accidentally encourage transaction spam). This should be written in a way that allows for a natural upgrade to a validator-customisable rewards model (defaulting to this one) if possible.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fee-system"><a class="header" href="#fee-system">Fee system</a></h1>
 <p>This specification should cover:</p>
 <ul>
