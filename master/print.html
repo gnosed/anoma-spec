@@ -352,6 +352,10 @@ those 2 months gearing up for launch.</li>
 <li>Shielded pool incentives</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="trusted-setup"><a class="header" href="#trusted-setup">Trusted setup</a></h1>
+<h2 id="what-is-the-anoma-setup"><a class="header" href="#what-is-the-anoma-setup">What is the Anoma Setup?</a></h2>
+<p>To enable private asset-agnostic bartering among any number of parties, Anoma uses a Multi-Asset Shielded Pool (MASP) circuit which is an extension of the Sapling circuit used in Zcash. This relies on a specific class of zero-knowledge proofs called Zero-knowledge succinct non-interactive arguments of knowledge (zk-SNARKs). Zk-SNARKs are secure in the common reference string (CRS) model, which assumes a trusted setup of parameters used for constructing and verifying proofs. In order to ensure the parameters are secure, we are running a Multi-Party Computation (MPC) protocol, more commonly called Trusted Setup Ceremony. The ceremony guarantees that proofs cannot be forged when at least one participant is honest, and guarantee zero-knowledge even if none of the participants are honest.</p>
+<h2 id="how-exactly-does-the-setup-work"><a class="header" href="#how-exactly-does-the-setup-work">How exactly does the setup work?</a></h2>
+<p>A trusted setup consists in 2 phases. The first phase is circuit-agnostic, that is, anyone who wants to build a zk-SNARK can use the outputs from this phase to bootstrap their zk-SNARK. This phase is called The Powers of Tau and has already been done by Zcash. The second phase is circuit-specific and that is where we will construct our MASP zk-SNARK circuit itself.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="governance"><a class="header" href="#governance">Governance</a></h1>
 <p>This specification should cover:</p>
 <ul>
